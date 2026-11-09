@@ -1,5 +1,6 @@
 from langchain_huggingface import HuggingFaceEmbeddings
 
+import numpy as np
 from sklearn.metrics.pairwise import cosine_similarity
 
 embedding = HuggingFaceEmbeddings(model='sentence-transformers/all-MiniLM-L6-v2')
@@ -17,4 +18,4 @@ query = "tell me about virat kohli"
 doc_embeddings = embedding.embed_documents(docs)
 query_embeddings = embedding.embed_query(query)
 
-print(cosine_similarity([query_embeddings], doc_embeddings))
+print(cosine_similarity(np.asarray([query_embeddings]), np.asarray(doc_embeddings)))
