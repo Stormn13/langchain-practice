@@ -20,7 +20,7 @@ model = ChatOpenAI(model="default", api_key=SecretStr(os.environ["LLM7_API_KEY"]
 
 # template
 template = PromptTemplate(
-    template=f"""
+    template="""
 Please summarize the research paper titled "{paper_input}" with the following specifications:
 explanation style: {style_input}
 explanation length: {lenght_input}
